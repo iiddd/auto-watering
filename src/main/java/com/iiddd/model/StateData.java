@@ -2,17 +2,17 @@ package com.iiddd.model;
 
 public class StateData {
 
-    boolean isAutomation;
-    boolean isWaterSmallNow;
-    boolean isWaterMediumNow;
-    boolean isWaterLargeNow;
+    private boolean automationStatus;
+    private boolean isWaterSmallNow;
+    private boolean isWaterMediumNow;
+    private boolean isWaterLargeNow;
 
     public boolean isAutomation() {
-        return isAutomation;
+        return automationStatus;
     }
 
     public StateData setAutomation(boolean automation) {
-        isAutomation = automation;
+        automationStatus = automation;
         return this;
     }
 

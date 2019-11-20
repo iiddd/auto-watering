@@ -2,8 +2,8 @@ package com.iiddd.model;
 
 public class StateDataResponse {
 
-    boolean isAutomation;
-    String result;
+    private boolean isAutomation;
+    private String result;
 
     public boolean isAutomation() {
         return isAutomation;

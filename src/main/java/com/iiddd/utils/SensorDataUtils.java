@@ -4,7 +4,7 @@ import com.iiddd.model.SensorDataResponse;
 
 public class SensorDataUtils {
 
-    public SensorDataResponse getSensorData() {
+    public static SensorDataResponse getSensorData() {
         SensorDataResponse sensorDataResponse = new SensorDataResponse();
         sensorDataResponse
                 .setHumiditySmall(123)

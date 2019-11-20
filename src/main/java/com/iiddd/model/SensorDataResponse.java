@@ -4,12 +4,12 @@ import java.util.List;
 
 public class SensorDataResponse {
 
-    int humiditySmall;
-    int humidityMedium;
-    int humidityLarge;
-    List<String> wateringHistorySmall;
-    List<String> wateringHistoryMedium;
-    List<String> wateringHistoryLarge;
+    private int humiditySmall;
+    private int humidityMedium;
+    private int humidityLarge;
+    private List<String> wateringHistorySmall;
+    private List<String> wateringHistoryMedium;
+    private List<String> wateringHistoryLarge;
 
     public int getHumiditySmall() {
         return humiditySmall;
