@@ -12,11 +12,11 @@ public class WaterStatus {
     private static List<String> wateringHistoryMedium;
     private static List<String> wateringHistoryLarge;
 
-    public static boolean isIsAutomation() {
+    public static boolean isAutomationStatus() {
         return automationStatus;
     }
 
-    public static void setIsAutomation(boolean isAutomation) {
+    public static void setAutomationStatus(boolean isAutomation) {
         WaterStatus.automationStatus = isAutomation;
     }
 

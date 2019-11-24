@@ -3,43 +3,39 @@ package com.iiddd.model;
 public class StateData {
 
     private boolean automationStatus;
-    private boolean isWaterSmallNow;
-    private boolean isWaterMediumNow;
-    private boolean isWaterLargeNow;
+    private boolean waterSmallNow;
+    private boolean waterMediumNow;
+    private boolean waterLargeNow;
 
-    public boolean isAutomation() {
+    public boolean isAutomationStatus() {
         return automationStatus;
     }
 
-    public StateData setAutomation(boolean automation) {
-        automationStatus = automation;
-        return this;
+    public void setAutomationStatus(boolean automationStatus) {
+        this.automationStatus = automationStatus;
     }
 
     public boolean isWaterSmallNow() {
-        return isWaterSmallNow;
+        return waterSmallNow;
     }
 
-    public StateData setWaterSmallNow(boolean waterSmallNow) {
-        isWaterSmallNow = waterSmallNow;
-        return this;
+    public void setWaterSmallNow(boolean waterSmallNow) {
+        this.waterSmallNow = waterSmallNow;
     }
 
     public boolean isWaterMediumNow() {
-        return isWaterMediumNow;
+        return waterMediumNow;
     }
 
-    public StateData setWaterMediumNow(boolean waterMediumNow) {
-        isWaterMediumNow = waterMediumNow;
-        return this;
+    public void setWaterMediumNow(boolean waterMediumNow) {
+        this.waterMediumNow = waterMediumNow;
     }
 
     public boolean isWaterLargeNow() {
-        return isWaterLargeNow;
+        return waterLargeNow;
     }
 
-    public StateData setWaterLargeNow(boolean waterLargeNow) {
-        isWaterLargeNow = waterLargeNow;
-        return this;
+    public void setWaterLargeNow(boolean waterLargeNow) {
+        this.waterLargeNow = waterLargeNow;
     }
 }
