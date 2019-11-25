@@ -67,15 +67,15 @@ public class WaterUtils {
         pumpOn(7);
     }
 
-    public static int getSmallPlantsSoilMoisture() {
+    static int getSmallPlantsSoilMoisture() {
         return readSensorAnalogData(SMALL_SENSOR_ID);
     }
 
-    public static int getMediumPlantsSoilMoisture() {
+    static int getMediumPlantsSoilMoisture() {
         return readSensorAnalogData(MEDIUM_SENSOR_ID);
     }
 
-    public static int getLargePlantsSoilMoisture() {
+    static int getLargePlantsSoilMoisture() {
         return readSensorAnalogData(LARGE_SENSOR_ID);
     }
 
