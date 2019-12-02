@@ -1,18 +1,24 @@
 package com.iiddd.controller;
 
-import com.iiddd.model.*;
+import com.iiddd.model.SensorDataResponse;
+import com.iiddd.model.StateData;
+import com.iiddd.model.StateDataResponse;
+import com.iiddd.model.WaterStatus;
+import com.iiddd.service.WateringConfigurationService;
 import com.iiddd.utils.SensorDataUtils;
 import com.iiddd.utils.WaterUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import static com.iiddd.utils.DataStore.getWateringHistory;
-
 @Controller
 public class WaterDataController {
+
+    @Autowired
+    WateringConfigurationService wateringConfigurationService;
 
     @RequestMapping(method = RequestMethod.POST, value = "/watering/update")
     @ResponseBody
@@ -38,6 +44,7 @@ public class WaterDataController {
     @ResponseBody
     public SensorDataResponse getSensorData() {
         System.out.println("Rest call is received");
+        wateringConfigurationService.getConfigurationEntity("automation_status");
         return SensorDataUtils.getSensorData();
     }
 }

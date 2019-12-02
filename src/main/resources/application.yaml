@@ -1,0 +1,12 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:sqlite:/Users/amerkulov/IdeaProjects/auto-watering/src/main/resources/db/watering.sqlite
+    driverClassName: org.sqlite.JDBC
+#  jpa:
+#    database-platform: that.custom.SQLiteDialect
+logging:
+  level:
+    root: info

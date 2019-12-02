@@ -1,9 +1,11 @@
-package com.iiddd.spring;
+package com.iiddd;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-@SpringBootApplication(scanBasePackages = "com.iiddd")
+@SpringBootApplication
+@EnableJpaRepositories
 public class SpringBootWaterApp {
 
     public static void main(String[] args) {
