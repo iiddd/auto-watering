@@ -1,9 +1,10 @@
 package com.iiddd.controller;
 
-import com.iiddd.model.SensorDataResponse;
-import com.iiddd.model.StateData;
-import com.iiddd.model.StateDataResponse;
-import com.iiddd.model.WaterStatus;
+import com.iiddd.enums.Configurations;
+import com.iiddd.enums.Statuses;
+import com.iiddd.models.SensorDataResponse;
+import com.iiddd.models.StateData;
+import com.iiddd.models.StateDataResponse;
 import com.iiddd.service.WateringConfigurationService;
 import com.iiddd.utils.SensorDataUtils;
 import com.iiddd.utils.WaterUtils;
@@ -14,6 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.logging.Logger;
+
 @Controller
 public class WaterDataController {
 
@@ -23,7 +26,7 @@ public class WaterDataController {
     @RequestMapping(method = RequestMethod.POST, value = "/watering/update")
     @ResponseBody
     public StateDataResponse updateState(@RequestBody StateData stateData) {
-        WaterStatus.setAutomationStatus(stateData.isAutomationStatus());
+        wateringConfigurationService.setConfigurationEntity(Configurations.AUTOMATION_STATUS, String.valueOf(stateData.isAutomationStatus()));
         if (stateData.isWaterSmallNow()) {
             WaterUtils.waterSmall();
         }
@@ -34,17 +37,16 @@ public class WaterDataController {
             WaterUtils.waterLarge();
         }
         StateDataResponse stateDataResponse = new StateDataResponse();
-        stateDataResponse.setAutomation(WaterStatus.isAutomationStatus());
-        stateDataResponse.setResult("SUCCESS");
-        System.out.println("Automation status: " + WaterStatus.isAutomationStatus());
+        stateDataResponse.setAutomation(wateringConfigurationService.getConfigurationEntity(Configurations.AUTOMATION_STATUS));
+        stateDataResponse.setResult(Statuses.SUCCESS);
+        Logger.getAnonymousLogger().info("update call is received");
         return stateDataResponse;
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/watering/getSensorsData")
     @ResponseBody
     public SensorDataResponse getSensorData() {
-        System.out.println("Rest call is received");
-        wateringConfigurationService.getConfigurationEntity("automation_status");
+        Logger.getAnonymousLogger().info("getSensorData call is received");
         return SensorDataUtils.getSensorData();
     }
 }

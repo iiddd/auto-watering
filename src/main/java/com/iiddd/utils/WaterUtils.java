@@ -1,6 +1,8 @@
 package com.iiddd.utils;
 
-import com.iiddd.model.WaterStatus;
+import com.iiddd.enums.Configurations;
+import com.iiddd.service.WateringConfigurationService;
+import org.springframework.beans.factory.annotation.Autowired;
 //import com.pi4j.io.gpio.GpioController;
 //import com.pi4j.io.gpio.GpioFactory;
 //import com.pi4j.io.gpio.GpioPinDigitalOutput;
@@ -8,14 +10,14 @@ import com.iiddd.model.WaterStatus;
 //import com.pi4j.io.i2c.I2CBus;
 //import com.pi4j.io.i2c.I2CDevice;
 //import com.pi4j.io.i2c.I2CFactory;
-import org.junit.Assert;
 
-import java.io.IOException;
-import java.util.logging.Logger;
 
 //import static com.pi4j.io.gpio.PinState.HIGH;
 
 public class WaterUtils {
+
+    @Autowired
+    WateringConfigurationService wateringConfigurationService;
 
 //    private static final String WATER_PUMP_NAME = "Water Pump";
 //    private static final String VALVE_A_NAME = "Valve A";
@@ -31,7 +33,7 @@ public class WaterUtils {
 
     public void doAutomation() {
         while (true) {
-            if (WaterStatus.isAutomationStatus()) {
+            if (wateringConfigurationService.getConfigurationEntity(Configurations.AUTOMATION_STATUS)) {
 //            disablePump();
 //            if (readWaterSensorSmall().isLow()) {
 //                pumpOn(2);

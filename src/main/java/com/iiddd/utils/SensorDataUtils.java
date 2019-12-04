@@ -1,6 +1,6 @@
 package com.iiddd.utils;
 
-import com.iiddd.model.SensorDataResponse;
+import com.iiddd.models.SensorDataResponse;
 
 public class SensorDataUtils {
 

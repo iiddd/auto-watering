@@ -12,3 +12,8 @@
 .progress {
     margin: 10px 5px;
 }
+
+.col-lg-4 {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}

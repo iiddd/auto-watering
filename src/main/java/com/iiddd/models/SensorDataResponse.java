@@ -1,4 +1,4 @@
-package com.iiddd.model;
+package com.iiddd.models;
 
 import java.util.List;
 
