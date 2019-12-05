@@ -1,0 +1,19 @@
+.hero {
+  background: url(https://previews.123rf.com/images/candicedawn/candicedawn1401/candicedawn140100087/25202522-immage-of-a-red-zinnia-being-held.jpg);
+  /* background-repeat: no-repeat; */
+  background-size: auto;
+  color: white;
+}
+
+.hero-content {
+  padding: 3rem 0;
+}
+
+.progress {
+  margin: 10px 5px;
+}
+
+.col-lg-4 {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
