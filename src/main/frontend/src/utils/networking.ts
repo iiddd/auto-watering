@@ -7,7 +7,7 @@ export function get(url:string): Promise<any> {
     },
   })
   .then(response => response.json())
-  .catch(err => console.log(err));
+  .catch(err => console.error(err));
 };
 
 export function post(url:string, data: any): Promise<any> {
@@ -20,5 +20,5 @@ export function post(url:string, data: any): Promise<any> {
     body: JSON.stringify(data)
   })
   .then(response => response.json())
-  .catch(err => console.log(err));
+  .catch(err => console.error(err));
 };
