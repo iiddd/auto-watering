@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    url: jdbc:sqlite:/Users/amerkulov/IdeaProjects/auto-watering/src/main/resources/db/watering.sqlite
+    url: jdbc:sqlite:watering.sqlite
     driverClassName: org.sqlite.JDBC
 #  jpa:
 #    database-platform: that.custom.SQLiteDialect
