@@ -28,13 +28,13 @@ public class WaterDataController {
     public StateDataResponse updateState(@RequestBody StateData stateData) {
         wateringConfigurationService.setConfigurationEntity(Configurations.AUTOMATION_STATUS, String.valueOf(stateData.isAutomationStatus()));
         if (stateData.isWaterSmallNow()) {
-            WaterUtils.waterSmall();
+//            WaterUtils.waterSmall();
         }
         if (stateData.isWaterMediumNow()) {
-            WaterUtils.waterMedium();
+//            WaterUtils.waterMedium();
         }
         if (stateData.isWaterLargeNow()) {
-            WaterUtils.waterLarge();
+//            WaterUtils.waterLarge();
         }
         StateDataResponse stateDataResponse = new StateDataResponse();
         stateDataResponse.setAutomation(wateringConfigurationService.getConfigurationEntity(Configurations.AUTOMATION_STATUS));

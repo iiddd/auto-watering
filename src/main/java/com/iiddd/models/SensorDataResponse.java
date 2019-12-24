@@ -4,36 +4,36 @@ import java.util.List;
 
 public class SensorDataResponse {
 
-    private int humiditySmall;
-    private int humidityMedium;
-    private int humidityLarge;
+    private String humiditySmall;
+    private String humidityMedium;
+    private String humidityLarge;
     private List<String> wateringHistorySmall;
     private List<String> wateringHistoryMedium;
     private List<String> wateringHistoryLarge;
 
-    public int getHumiditySmall() {
+    public String getHumiditySmall() {
         return humiditySmall;
     }
 
-    public SensorDataResponse setHumiditySmall(int humiditySmall) {
+    public SensorDataResponse setHumiditySmall(String humiditySmall) {
         this.humiditySmall = humiditySmall;
         return this;
     }
 
-    public int getHumidityMedium() {
+    public String getHumidityMedium() {
         return humidityMedium;
     }
 
-    public SensorDataResponse setHumidityMedium(int humidityMedium) {
+    public SensorDataResponse setHumidityMedium(String humidityMedium) {
         this.humidityMedium = humidityMedium;
         return this;
     }
 
-    public int getHumidityLarge() {
+    public String getHumidityLarge() {
         return humidityLarge;
     }
 
-    public SensorDataResponse setHumidityLarge(int humidityLarge) {
+    public SensorDataResponse setHumidityLarge(String humidityLarge) {
         this.humidityLarge = humidityLarge;
         return this;
     }
