@@ -1,0 +1,20 @@
+.hero {
+  background: url(./assets/hrt_plants_2.jpg);
+  /* background-repeat: no-repeat; */
+  background-size: auto;
+  color: white;
+}
+
+.hero-content {
+  padding: 3rem 0;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.progress {
+  margin: 10px 5px;
+}
+
+.col-lg-4 {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
