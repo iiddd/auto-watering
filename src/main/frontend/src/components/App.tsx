@@ -1,56 +1,76 @@
 import React, { useState, useEffect } from 'react';
 import {Hero} from './Hero';
 import {Card} from './Card';
+import {TypeCards} from '../types';
 
-const MOCK = {
+const MOCK_CARDS: TypeCards = {
   bigPlants: {
     title: 'Big plants',
     moisture: 50,
     history: [
-      'Cras justo odio',
-      'Dapibus ac facilisis in',
-      'Morbi leo risus',
-      'Porta ac consectetur ac',
-      'Vestibulum at eros'
+      { date: '', text: 'Cras justo odio' },
+      { date: '', text: 'Dapibus ac facilisis in' },
+      { date: '', text: 'Morbi leo risus' },
+      { date: '', text: 'Porta ac consectetur ac' },
+      { date: '', text: 'Vestibulum at eros' }
     ]
   },
   mediumPlants: {
     title: 'Medium plants',
     moisture: 50,
     history: [
-      'Cras justo odio',
-      'Dapibus ac facilisis in',
-      'Morbi leo risus',
-      'Porta ac consectetur ac',
-      'Vestibulum at eros'
+      { date: '', text: 'Cras justo odio' },
+      { date: '', text: 'Dapibus ac facilisis in' },
+      { date: '', text: 'Morbi leo risus' },
+      { date: '', text: 'Porta ac consectetur ac' },
+      { date: '', text: 'Vestibulum at eros' }
     ]
   },
   smallPlants: {
     title: 'Small plants',
     moisture: 50,
     history: [
-      'Cras justo odio',
-      'Dapibus ac facilisis in',
-      'Morbi leo risus',
-      'Porta ac consectetur ac',
-      'Vestibulum at eros'
+      { date: '', text: 'Cras justo odio' },
+      { date: '', text: 'Dapibus ac facilisis in' },
+      { date: '', text: 'Morbi leo risus' },
+      { date: '', text: 'Porta ac consectetur ac' },
+      { date: '', text: 'Vestibulum at eros' }
     ]
   }
 };
 
+const defaultCardsData: TypeCards = {
+  bigPlants: {
+    title: 'Big plants',
+    moisture: 0,
+    history: []
+  },
+  mediumPlants: {
+    title: 'Medium plants',
+    moisture: 0,
+    history: []
+  },
+  smallPlants: {
+    title: 'Small plants',
+    moisture: 0,
+    history: []
+  }
+};
+
 const App: React.FC = () => {
-  const [cards, setCards] = useState(MOCK);
-  const [test, setTest] = useState({});
-  useEffect(() => {
+  const [cards, setCards] = useState(defaultCardsData);
+
+  function fetchPopulateData() {
     fetch('https://jsonplaceholder.typicode.com/todos/1')
       .then(response => response.json())
       .then(json => {
-        setTest(json);
+        setCards(MOCK_CARDS);
       })
-      
+  }
+  useEffect(() => {
+    fetchPopulateData();
   }, []);
 
-  console.log('test: ', test)
   return (
     <div>
       <Hero title={'Hey! Let\'s check your flowers'} />

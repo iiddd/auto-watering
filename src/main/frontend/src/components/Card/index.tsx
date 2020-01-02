@@ -1,11 +1,6 @@
 import React from 'react';
 import {get} from '../../utils/networking';
-
-type CardProps = {
-  title: string,
-  moisture: number,
-  history: string[]
-}
+import {TypeCard} from '../../types';
 
 function onButtonClick() {
   console.log('Water now clicked!');
@@ -15,7 +10,7 @@ function onButtonClick() {
     });
 }
 
-export function Card(props: CardProps) {
+export function Card(props: TypeCard) {
   return (
     <div className="col-sm-12 col-md-6 col-lg-4">
       <div className="card">
@@ -32,24 +27,23 @@ export function Card(props: CardProps) {
               aria-valuenow={props.moisture}
               aria-valuemin={0}
               aria-valuemax={100}
-            >
-              {`${props.moisture}%`}
-            </div>
+            >{`${props.moisture}%`}</div>
           </div>
 
           <div className='text-center pt-2 mb-4'>
             <button
               className="btn btn-primary"
               onClick={onButtonClick}
-            >
-              Water now
-            </button>
+            >Water now</button>
           </div>
           <h5 className="card-text">Watering history:</h5>
           <ul className="list-group list-group-flush">
             {
               props.history.map(((item, index) =>
-                <li key={index} className="list-group-item">{item}</li>))
+                item
+                  ? <li key={index} className="list-group-item">{item.text}</li>
+                  : ''
+              ))
             }
           </ul>
         </div>
