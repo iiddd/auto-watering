@@ -41,7 +41,7 @@ export function Card(props: TypeCard) {
             {
               props.history.map(((item, index) =>
                 item
-                  ? <li key={index} className="list-group-item">{item.text}</li>
+                  ? <li key={index} className="list-group-item">{item.date} {item.status}</li>
                   : ''
               ))
             }

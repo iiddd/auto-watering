@@ -1,6 +1,10 @@
 import React from 'react';
-import {get} from '../../utils/networking';
-type HeroProps = { title: string };
+import {get, post} from '../../utils/networking';
+
+type HeroProps = {
+  title: string
+  isAutomationStatusOn: boolean
+};
 
 export function Hero(props: HeroProps) {
   const handlers = {
@@ -13,14 +17,22 @@ export function Hero(props: HeroProps) {
     },
     onStopAutomationButtonClick() {
       console.log('StopAutomation clicked!');
-      get('https://jsonplaceholder.typicode.com/todos/1')
+      post('https://jsonplaceholder.typicode.com/todos/1', {})
         .then(json => {
           console.log('StopAutomation response: ', json)
+        });
+    },
+    onStartAutomationButtonClick() {
+      console.log('StopAutomation clicked!');
+      post('https://jsonplaceholder.typicode.com/todos/1', {
+        automationStatus: props.isAutomationStatusOn
+      })
+        .then(json => {
+          console.log('StartAutomation response: ', json)
         });
     }
   };
   
-
   return (
     <div className="jumbotron text-center hero">
       <div className="container">
@@ -29,14 +41,23 @@ export function Hero(props: HeroProps) {
 
           <div>
             <button
-              className="btn btn-primary btn-lg"
+              className="btn btn-primary btn-lg mx-3"
               onClick={handlers.onRefreshButtonClick}
             >Refresh</button>
 
-            <button
-              className="btn btn-primary btn-lg"
-              onClick={handlers.onStopAutomationButtonClick}
-            >Stop automation</button>
+            {
+              props.isAutomationStatusOn
+                ? (<button
+                      className="btn btn-warning btn-lg mx-3"
+                      onClick={handlers.onStopAutomationButtonClick}
+                    >Stop automation</button>)
+                : (<button
+                  className="btn btn-primary btn-lg mx-3"
+                  onClick={handlers.onStartAutomationButtonClick}
+                >Start automation</button>)
+
+            }
+            
           </div>
 
         </div>

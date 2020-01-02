@@ -1,6 +1,6 @@
 export type TypeHistory = {
   date: string,
-  text: string
+  status: string
 };
 
 export type TypeCard = {

@@ -1,5 +1,5 @@
 .hero {
-  background: url(https://previews.123rf.com/images/candicedawn/candicedawn1401/candicedawn140100087/25202522-immage-of-a-red-zinnia-being-held.jpg);
+  background: url(./assets/hrt_plants_2.jpg);
   /* background-repeat: no-repeat; */
   background-size: auto;
   color: white;
@@ -7,6 +7,7 @@
 
 .hero-content {
   padding: 3rem 0;
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 .progress {

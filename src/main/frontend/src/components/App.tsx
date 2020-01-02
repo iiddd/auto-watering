@@ -2,39 +2,40 @@ import React, { useState, useEffect } from 'react';
 import {Hero} from './Hero';
 import {Card} from './Card';
 import {TypeCards} from '../types';
+import {get} from '../utils/networking';
 
 const MOCK_CARDS: TypeCards = {
   bigPlants: {
     title: 'Big plants',
     moisture: 50,
     history: [
-      { date: '', text: 'Cras justo odio' },
-      { date: '', text: 'Dapibus ac facilisis in' },
-      { date: '', text: 'Morbi leo risus' },
-      { date: '', text: 'Porta ac consectetur ac' },
-      { date: '', text: 'Vestibulum at eros' }
+      { date: '12.12.2090 12:00', status: 'Cras justo odio' },
+      { date: '', status: 'Dapibus ac facilisis in' },
+      { date: '', status: 'Morbi leo risus' },
+      { date: '', status: 'Porta ac consectetur ac' },
+      { date: '', status: 'Vestibulum at eros' }
     ]
   },
   mediumPlants: {
     title: 'Medium plants',
     moisture: 50,
     history: [
-      { date: '', text: 'Cras justo odio' },
-      { date: '', text: 'Dapibus ac facilisis in' },
-      { date: '', text: 'Morbi leo risus' },
-      { date: '', text: 'Porta ac consectetur ac' },
-      { date: '', text: 'Vestibulum at eros' }
+      { date: '', status: 'Cras justo odio' },
+      { date: '', status: 'Dapibus ac facilisis in' },
+      { date: '', status: 'Morbi leo risus' },
+      { date: '', status: 'Porta ac consectetur ac' },
+      { date: '', status: 'Vestibulum at eros' }
     ]
   },
   smallPlants: {
     title: 'Small plants',
     moisture: 50,
     history: [
-      { date: '', text: 'Cras justo odio' },
-      { date: '', text: 'Dapibus ac facilisis in' },
-      { date: '', text: 'Morbi leo risus' },
-      { date: '', text: 'Porta ac consectetur ac' },
-      { date: '', text: 'Vestibulum at eros' }
+      { date: '', status: 'Cras justo odio' },
+      { date: '', status: 'Dapibus ac facilisis in' },
+      { date: '', status: 'Morbi leo risus' },
+      { date: '', status: 'Porta ac consectetur ac' },
+      { date: '', status: 'Vestibulum at eros' }
     ]
   }
 };
@@ -59,21 +60,32 @@ const defaultCardsData: TypeCards = {
 
 const App: React.FC = () => {
   const [cards, setCards] = useState(defaultCardsData);
+  const [isAutomationStatusOn, setIsAutomationStatusOn] = useState(true);
 
   function fetchPopulateData() {
-    fetch('https://jsonplaceholder.typicode.com/todos/1')
-      .then(response => response.json())
-      .then(json => {
+    return get('https://jsonplaceholder.typicode.com/todos/1')
+      .then(cards => {
         setCards(MOCK_CARDS);
       })
   }
+  function getAutomationStatus() {
+    return get('https://jsonplaceholder.typicode.com/todos/1')
+      .then(status => {
+        setIsAutomationStatusOn(true);
+      })
+  }
+
   useEffect(() => {
     fetchPopulateData();
+    getAutomationStatus();
   }, []);
 
   return (
     <div>
-      <Hero title={'Hey! Let\'s check your flowers'} />
+      <Hero
+        title={'Hey! Let\'s check your flowers'}
+        isAutomationStatusOn={isAutomationStatusOn}
+      />
       <div className="container">
         <div className="row">
           <Card
