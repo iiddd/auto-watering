@@ -1,6 +1,8 @@
 .idea
 *.iml
+*.sqlite
 target
 
 .classpath
 .project
+/.run/rasp-water.run.xml
